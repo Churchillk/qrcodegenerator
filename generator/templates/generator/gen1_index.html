@@ -1,0 +1,53 @@
+{% extends "generator/gen_base.html" %}
+{% load static %}
+{% block title %}QRgenerator{% endblock title %}
+{% block generator1 %}
+<div class="father">
+    <div class="f-main">
+        <div class="mother" id="home">
+            <div class="left">
+                <div class="alltext">
+                    <div class="alltext1">
+                        <h4>Generate a Qr code today using</h4>
+                        <h1><span>Black</span>Code<span>Labs</span></h1>
+                        <small>using this tech you can generate codes for your business, company, <br>reverse shell, name them.. anyone can use this qr generator. <br>no skill reqired. all you doo is pass the text or url to be<br> embeded in the qr</small>
+                    </div>
+                    <div class="alltext2">  
+                            <h1>
+                                Users <a href="" class="typewrite" data-period="2000" data-type='[ "Companies", "institutions", "students", "artists", "Teachers", "Organizations", "Doctors", "Farmers", "etc" ]'>
+                                <span class="wrap"></span>
+                                </a>
+                            </h1>
+                    </div>
+                    
+                    <!--placeholder-->
+                    <h3 id="ph"></h3>
+                    <!--place holder-->
+                    <div class="newslatter">
+                        <form method="POST" action="{% url 'genhome' %}">
+                            {{ form.as_p }}
+                            <button type="submit" name="submit">Generate</button>
+                        </form>
+                    </div>
+                </div>
+            </div><!--end left-->
+            <div class="right">
+                    <div class="all2">
+                        <div class="text">
+                            <form method="POST" action="{% url 'genhome' %}">
+                                {% csrf_token %}
+                                <div class = "container">
+                                    <h3>Generated <span>Qr</span></h3>
+                                    <img src = "{% static "img/q.png" %}">  
+                                </div>
+                            </form>
+                        </div>
+                        <br><br>
+                        
+                    </div>
+            </div><!--end right-->
+        </div><!--end mother-->
+    </div>
+</div>
+
+{% endblock %}

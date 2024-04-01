@@ -1,0 +1,47 @@
+{% extends "generator/gen_base.html" %}
+{% load static %}
+{% block title %}QRgenerator{% endblock title %}
+{% block generator1 %}
+<div class="all">
+    <div class = "all1">
+        <div class="left">
+            <div class="alltext">
+                <div class="alltext1">
+                    <h4>Hello My name is</h4>
+                    <h1><span>Odhiambo</span> Churchill </h1>
+                </div>
+                <div class="alltext2">  
+                        <h1>
+                            I'm a <a href="" class="typewrite" data-period="2000" data-type='[ "programmer", "cybersecurity specialist", "mobile app Developer", "Fullstack Developer", "Graphics Designer" ]'>
+                            <span class="wrap"></span>
+                            </a>
+                        </h1>
+                </div>
+                <!--placeholder-->
+                <h3 id="ph"></h3>
+                <!--place holder-->
+                <div class="newslatter">
+                    <form action = "sendmail.php">
+                        <input type="text" id="mail" placeholder="leave a comment">
+                        <input type="submit" name="submit", value="send">
+                    </form>
+                </div>
+            </div><!--end left-->
+        </div>
+    </div>
+    <div class="all2">
+        <div class="text">
+            <form method="POST" action="{% url 'genhome' %}">
+                {% csrf_token %}
+                <div class = "container">
+                    {{ form.as_p }}
+                    <img src = "{% static "img/q.png" %}">
+                    <button class = "btn" type="submit">Generate</button>
+                </div>
+            </form>
+        </div>
+        <br><br>
+        
+    </div>
+</div>
+{% endblock generator1 %}
